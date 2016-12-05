@@ -8,7 +8,7 @@ var tab = "";
 function myHeight () {
   inputTree.height = document.getElementById("height").value;
   inputTree.char=document.getElementById("char").value;
-  tree(inputTree);
+  tabFun(inputTree);
 }
 //KeyPress Event Function
 function kbevt(event) {
@@ -23,26 +23,31 @@ button.addEventListener("click",myHeight);
 document.addEventListener("keyPress",kbevt);
 
 
-//function for creating space in console
+//function for building the tree in console
 
-function tabFun () {
-
+function tabFun (inputTree) {
+  tree ();
    for(var i=0;i<inputTree.height; i++){
       tab =" ";
       tab = tab.repeat(inputTree.height-i);
       char = inputTree.char.repeat((i+1)+i);
       console.log(tab + char);
  }
-  return tab;
 }
 
-//function to grow tree
-function tree (inputTree) {
+//function to check the input values for tree
+function tree () {
 
-  if ((inputTree.height==="")&&(inputTree.char==="")) {
-    alert("Please tell how tall your tree should be and a character to grow a tree");
-  }else {
-    tabFun();
-    alert("Please have a look at your Pine Tree in the console");
+  if ((inputTree.height === "")&& (inputTree.char===""))
+  {
+    alert("Please enter the input fields");
+  } else if(inputTree.height === "")
+  {
+    alert("Please tell a height value to build the tree ");
+  } else if (inputTree.char === "") {
+    alert ("Please tell a character to build the tree")
+  } else {
+    myHeight;
   }
+
 }
